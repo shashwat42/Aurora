@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "run_kind": "baseline_candidate",
+  "seed": 20261101,
+  "manifest": "data/metadata/manifest.v1.json",
+  "manifest_sha256": "9fd50e5ec5484f31245e319dc91b32830f7664b424d3800f46a1434209c7d551",
+  "data_root": "data",
+  "architecture": "rgb-scene-depth-selective-unet-v1",
+  "scene_context": "native-input-channel-moments-v1",
+  "model": {
+    "base_channels": 16,
+    "residual_scale": 0.5,
+    "scene_hidden": 32,
+    "gain_scale": 0.5,
+    "offset_scale": 0.25
+  },
+  "crop_size": 256,
+  "batch_size": 2,
+  "epochs": 20,
+  "learning_rate": 0.0002,
+  "weight_decay": 0.0001,
+  "loss_weights": {
+    "l1": 1.0,
+    "ssim": 0.2,
+    "perceptual": 0.0,
+    "adversarial": 0.0
+  },
+  "l1_prediction": "unclamped",
+  "candidate_epochs": [
+    5,
+    10,
+    20
+  ],
+  "candidate_search_budget": "ONE new from-scratch selective-fusion depth run, 20epochs seed20261101 candidates5/10/20. No other seeds, selector widths, fusion scales, loss or epoch sweeps. Reuse existing scalar-depth and V3 RGB comparisons without retraining.",
+  "selection_policy": "Diagnostic-only evaluation of all three candidates first. A separately recorded diagnostic acceptance is required before selection. Formal selection uses all three candidates, artifact screen first, mean native PSNR; ties within 0.01 dB use SSIM then earlier step. No final-test/challenging access.",
+  "review_rubric": "Zero major artifacts and at most four minor cases of 40; same original rubric and two independent review records. No aggregate score overrides artifact failure.",
+  "diagnostic_gate_record": "artifacts/phase3/selective_evaluation/diagnostic_acceptance.json",
+  "diagnostic_continuation": "Compare all three candidates against matched scalar-depth and V3 RGB checkpoints on diagnostic40. At least one must match or exceed BOTH matched RGB means and not regress either matched scalar-depth mean. Fixed8 native review must find no new major defect. On fixed3 final-checkpoint probes, assess zero-input, flipped-depth and actual fusion removal; do not infer a universal repair. Failure closes this setting without automatic sweep. Selection requires recorded acceptance; final sets sealed.",
+  "device": "cpu",
+  "threads": 4,
+  "output": "artifacts/phase3/selective_depth",
+  "protocol_version": "selective-depth-reconstruction-v1",
+  "rationale": "Fixed3 diagnostics show useful depth dependence on fish/wreck but harmful fusion on equipment with correct cache. Add RGB/depth-conditioned per-location per-channel suppression rather than blanket fusion removal. Hypothesis, not calibrated confidence.",
+  "depth_config": "configs/depth.json",
+  "depth_config_sha256": "7dfc3646ba7ae8585bf22ab426bed7116cbc0096ec6031c6cec6cec13ba69430",
+  "depth_fingerprint": "3739c18d0802bd47a27a7f087c286a277e9b659eb9913796f99dc1c821bf3f42"
+}

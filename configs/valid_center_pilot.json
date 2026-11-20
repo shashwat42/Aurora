@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "type": "diagnostic_valid_center_pilot",
+  "experiment_id": "valid-center-reconstruction-v1",
+  "arms": {
+    "control": "configs/identity_pilot_control.json",
+    "treatment": "configs/valid_center_treatment.json"
+  },
+  "loss_margin": 64,
+  "identity_weight": 0.0,
+  "source_weights_sha256": "fb6089e61b1b010a014d07dede182bd23504c2e57bff71ab1caab86a4cdebd44",
+  "reuse_diagnostic_evaluation": {
+    "control": {
+      "summary": "artifacts/phase2/identity_pilot/evaluation/control/summary.json",
+      "summary_sha256": "573a3e370314411fa3c0fa591368e485c17415de3429bd067752facca662071b"
+    }
+  },
+  "native_edge_ids": [
+    "284_img_",
+    "359_img_",
+    "887_img_",
+    "14_img_",
+    "787_img_",
+    "380_img_",
+    "729_img_",
+    "851_img_"
+  ],
+  "native_edge_band": 16,
+  "output": "artifacts/phase2/valid_center_pilot",
+  "rationale": "Three fixed reconstruction-only diagnostic cases show aligned crop interiors match native inference within 1.2e-7 while 27-40% of full-crop channel samples differ by >1/255. Test reconstruction supervision away from artificial crop boundaries without changing the model or input crop. This is not proof that boundary effects cause all colour/artifact failures.",
+  "objective": "Mean raw L1 plus 0.2 times (1 minus bounded valid11 SSIM) computed on central128 of unchanged256 input crops; no identity/perceptual/adversarial term.",
+  "optimizer_policy": "Initialize from the original V2 epoch20 source, not any identity treatment or continued control; fresh AdamW exactly as matched completed control, same seed and augmentation epochs20/21.",
+  "compute_budget": "One new treatment, two epochs / 714 new optimizer steps. Reuse completed control and diagnostic40; evaluate40 treatment native images. Eight fixed PNG border/interior MSE checks per arm, no extra model forwards. No training at other seeds/margins or automated sweep.",
+  "limitations": [
+    "L1 supervises25% as many output pixels; SSIM uses118x118 instead of246x246 valid window positions, so supervision coverage is a confound.",
+    "Does not add global scene context, remove reflection padding for small training inputs, or guarantee colour improvement.",
+    "Native image edges may degrade after excluding artificial crop edges; inspect fixed native16-pixel bands and whole-image/corner crops.",
+    "Same diagnostic set has been used adaptively; continuation is exploratory, not independent generalization evidence."
+  ],
+  "continuation_criteria": [
+    "Both native diagnostic mean PSNR and SSIM must meet or exceed matched control.",
+    "Mean per-image16-pixel border PNG MSE over the fixed eight must not increase; supplementary 8-bit metric, not native-float primary PSNR/SSIM.",
+    "Inspect fixed eight cases at native edges and interior/contour ROIs: no new major defects; do not accept aggregate means alone.",
+    "If any criterion fails, do not promote or automatically sweep margins. Even success requires a separately declared full-baseline protocol and formal selection/artifact gates."
+  ],
+  "prior_evidence": {
+    "report": "artifacts/phase2/diagnosis_v2/scene_context/report.json",
+    "report_sha256": "f9e4b5fd8d6cd13e0d184e75377d60cf5c0e23071132b7b70a2bc296ac308922"
+  },
+  "selection_policy": "Diagnostic pilot bundles remain forbidden from selection; selection, final test and challenging inputs stay sealed."
+}

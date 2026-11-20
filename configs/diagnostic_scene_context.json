@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "purpose": "Bounded diagnostic scene-scale and artificial-boundary counterfactuals, not a trained or selected candidate",
+  "bundle": "artifacts/phase2/identity_pilot/control/last/bundle.json",
+  "weights_sha256": "a428b4360c7c8132fe6c3cdf8cc5af5146b0974f58677f9396cd3bb735095970",
+  "ids": ["14_img_", "380_img_", "729_img_"],
+  "long_edge": 256,
+  "crop_size": 256,
+  "interior_margin": 64,
+  "resize": "Bilinear align_corners=False; antialias=True for downsampling; resized dimensions rounded to multiples of eight",
+  "variants": ["native", "resampled_native_residual", "scene_scaled_residual", "scene_scaled_meanmatched"],
+  "output": "artifacts/phase2/diagnosis_v2/scene_context",
+  "interpretation": "Scene scaling changes image frequency and effective context together. Matched residual resampling and mean matching separate some effects but cannot establish global-context causality. No inference/postprocessor adoption or training decision from aggregate metrics alone.",
+  "budget": "Exactly three diagnostic cases: one native, one aligned center crop and one reduced-scene forward each (nine total). No training, selection or final evaluation."
+}

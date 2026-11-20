@@ -1,0 +1,703 @@
+{
+  "version": 1,
+  "reviewer": "Codex, feature-assisted and visual scene review, 1 November 2026; no independent human review claimed",
+  "evidence": "artifacts/data_review/all_pairs_01.jpg through all_pairs_18.jpg and candidates_01.jpg; original decode and dimension audit",
+  "alignment_decision": "All 890 pairs show corresponding content at contact-sheet scale; the 128-pixel phase-correlation screen has no translation flags. This is an initial alignment screen, not subpixel registration certification.",
+  "duplicate_policy": "Keep the numerically lowest ID for each exact decoded-RGB duplicate input group. Preserve all source files. Different curated references do not justify repeating identical inputs.",
+  "mpo_policy": "Accepted quarantine of two-frame challenging/2.png; preserve the original. Additional source-ambiguity quarantines are listed explicitly. Revised challenging count is prospective and must not be described as the complete 60-image benchmark.",
+  "scene_policy": "Accepted conservative visual groups plus all frozen-descriptor raw/raw edges at cosine >=0.93. Every remaining out-of-group nearest-neighbor case was visually reviewed in focus_01 through focus_11. Ambiguous cross-set source families are quarantined; retained challenging related views share scene IDs. Disjointness is with respect to reviewed visual/source-proxy clusters, not unprovided geographic, camera or dive identifiers.",
+  "status": "approved",
+  "visual_img_ranges": [
+    {
+      "start": 85,
+      "end": 281,
+      "reason": "Conservative reef/dive sequence grouping, including interspersed subjects"
+    },
+    {
+      "start": 536,
+      "end": 642,
+      "reason": "Conservative green-water reef/dive sequence grouping, including interspersed subjects"
+    },
+    {
+      "start": 711,
+      "end": 718,
+      "reason": "Related wreck views"
+    },
+    {
+      "start": 730,
+      "end": 732,
+      "reason": "Same diver/fish scene"
+    },
+    {
+      "start": 775,
+      "end": 781,
+      "reason": "Conservative neighboring reef sequence"
+    }
+  ],
+  "visual_id_groups": [
+    {
+      "ids": [
+        "10139",
+        "10151",
+        "10909",
+        "10945",
+        "11374",
+        "11398"
+      ],
+      "reason": "Related manatee views"
+    },
+    {
+      "ids": [
+        "12290",
+        "12299",
+        "12324",
+        "12336",
+        "12348",
+        "12422",
+        "12433",
+        "12445",
+        "12900"
+      ],
+      "reason": "Conservative shark-aquarium collection"
+    },
+    {
+      "ids": [
+        "16_img_",
+        "22_img_",
+        "23_img_",
+        "24_img_",
+        "25_img_",
+        "26_img_",
+        "27_img_",
+        "37_img_",
+        "55_img_",
+        "566_img_",
+        "567_img_",
+        "568_img_",
+        "573_img_",
+        "584_img_",
+        "645_img_"
+      ],
+      "reason": "Conservative related near-surface fish views"
+    },
+    {
+      "ids": [
+        "9_img_",
+        "63_img_",
+        "324_img_",
+        "326_img_",
+        "411_img_",
+        "488_img_",
+        "610_img_",
+        "859_img_",
+        "861_img_"
+      ],
+      "reason": "Related outstretched-arm sculpture views"
+    },
+    {
+      "ids": [
+        "113_img_",
+        "278_img_",
+        "282_img_",
+        "313_img_",
+        "320_img_",
+        "350_img_",
+        "46_img_",
+        "632_img_",
+        "70_img_",
+        "72_img_",
+        "73_img_",
+        "842_img_",
+        "876_img_"
+      ],
+      "reason": "Conservative standing-figure sculpture collection"
+    },
+    {
+      "ids": [
+        "10_img_",
+        "168_img_"
+      ],
+      "reason": "Same underwater building"
+    },
+    {
+      "ids": [
+        "20",
+        "31",
+        "35",
+        "4"
+      ],
+      "reason": "Related orange-sponges/diver scene"
+    },
+    {
+      "ids": [
+        "29_img_",
+        "3_img_",
+        "346_img_"
+      ],
+      "reason": "Related reclining sculpture"
+    },
+    {
+      "ids": [
+        "517_img_",
+        "856_img_"
+      ],
+      "reason": "Conservative desk sculpture collection"
+    },
+    {
+      "ids": [
+        "17_img_",
+        "208_img_",
+        "290_img_",
+        "328_img_",
+        "447_img_"
+      ],
+      "reason": "Related submerged pots collection"
+    },
+    {
+      "ids": [
+        "563_img_",
+        "567",
+        "827_img_",
+        "3925",
+        "3947",
+        "4070",
+        "699_img_"
+      ],
+      "reason": "Conservative shark-feeding scene grouping"
+    },
+    {
+      "ids": [
+        "378_img_",
+        "379_img_"
+      ],
+      "reason": "Related shark/coral views"
+    },
+    {
+      "ids": [
+        "401_img_",
+        "657_img_"
+      ],
+      "reason": "Related suspended swimmer and branches"
+    },
+    {
+      "ids": [
+        "460_img_",
+        "705_img_",
+        "828_img_",
+        "754_img_",
+        "877_img_"
+      ],
+      "reason": "Conservative small-wreck collection"
+    },
+    {
+      "ids": [
+        "462_img_",
+        "465_img_",
+        "489_img_"
+      ],
+      "reason": "Related reef fish collection; uncertain membership grouped conservatively"
+    },
+    {
+      "ids": [
+        "471_img_",
+        "472_img_"
+      ],
+      "reason": "Related fish-tank scene"
+    },
+    {
+      "ids": [
+        "482_img_",
+        "483_img_"
+      ],
+      "reason": "Adjacent reef scene"
+    },
+    {
+      "ids": [
+        "502_img_",
+        "503_img_"
+      ],
+      "reason": "Related diver and schooling fish"
+    },
+    {
+      "ids": [
+        "52_img_",
+        "56_img_",
+        "570_img_",
+        "571_img_",
+        "575_img_",
+        "576_img_",
+        "577_img_",
+        "579_img_",
+        "580_img_"
+      ],
+      "reason": "Conservative shallow seabed sequence"
+    },
+    {
+      "ids": [
+        "5818",
+        "5830",
+        "6062",
+        "6082"
+      ],
+      "reason": "Related kneeling diver views"
+    },
+    {
+      "ids": [
+        "662_img_",
+        "818_img_",
+        "822_img_"
+      ],
+      "reason": "Conservative lionfish/wreck collection"
+    },
+    {
+      "ids": [
+        "670_img_",
+        "672_img_",
+        "673_img_"
+      ],
+      "reason": "Related wreck deck views"
+    },
+    {
+      "ids": [
+        "696_img_",
+        "697_img_"
+      ],
+      "reason": "Related diver/reef views"
+    },
+    {
+      "ids": [
+        "708_img_",
+        "829_img_"
+      ],
+      "reason": "Exact duplicate inputs"
+    },
+    {
+      "ids": [
+        "720_img_",
+        "831_img_"
+      ],
+      "reason": "Exact duplicate inputs"
+    },
+    {
+      "ids": [
+        "727_img_",
+        "832_img_"
+      ],
+      "reason": "Near-duplicate reef view"
+    },
+    {
+      "ids": [
+        "791_img_",
+        "87_img_",
+        "90_img_",
+        "92_img_",
+        "95_img_",
+        "97_img_"
+      ],
+      "reason": "Conservative reef sequence"
+    },
+    {
+      "ids": [
+        "796_img_",
+        "798_img_"
+      ],
+      "reason": "Related wreck structure/diver"
+    },
+    {
+      "ids": [
+        "816_img_",
+        "817_img_"
+      ],
+      "reason": "Related cuttlefish views"
+    },
+    {
+      "ids": [
+        "841",
+        "872_img_"
+      ],
+      "reason": "Related purple-water diver scene"
+    },
+    {
+      "ids": [
+        "844_img_",
+        "875_img_"
+      ],
+      "reason": "Related reef and diver"
+    },
+    {
+      "ids": [
+        "867_img_",
+        "855_img_"
+      ],
+      "reason": "Conservative diver group scene"
+    },
+    {
+      "ids": [
+        "9547",
+        "9554",
+        "9557"
+      ],
+      "reason": "Related reef sequence"
+    },
+    {
+      "ids": [
+        "9900",
+        "9907",
+        "9947"
+      ],
+      "reason": "Related sea-dragon/kelp collection"
+    },
+    {
+      "ids": [
+        "302_img_",
+        "312_img_"
+      ],
+      "reason": "Conservative related diver/equipment collection, focus sheet 02"
+    },
+    {
+      "ids": [
+        "315_img_",
+        "316_img_"
+      ],
+      "reason": "Conservative wreck collection, focus sheet 02"
+    },
+    {
+      "ids": [
+        "417_img_",
+        "419_img_",
+        "519_img_",
+        "10_img_",
+        "168_img_"
+      ],
+      "reason": "Related underwater building views, focus sheets 04 and 05"
+    },
+    {
+      "ids": [
+        "422_img_",
+        "530_img_"
+      ],
+      "reason": "Related rounded wreck bow views, focus sheet 04"
+    },
+    {
+      "ids": [
+        "403_img_",
+        "423_img_"
+      ],
+      "reason": "Conservative aquarium structure and fish collection, focus sheet 04"
+    },
+    {
+      "ids": [
+        "445_img_",
+        "446_img_"
+      ],
+      "reason": "Conservative nearby diver views, focus sheet 04"
+    },
+    {
+      "ids": [
+        "428_img_",
+        "451_img_",
+        "796_img_",
+        "798_img_"
+      ],
+      "reason": "Conservative wreck/diver collection, focus sheets 05 and 08"
+    },
+    {
+      "ids": [
+        "454_img_",
+        "455_img_",
+        "580_img_"
+      ],
+      "reason": "Conservative illuminated seabed sequence, focus sheet 05"
+    },
+    {
+      "ids": [
+        "497_img_",
+        "586_img_"
+      ],
+      "reason": "Conservative fish/reef views, focus sheets 05 and 06"
+    },
+    {
+      "ids": [
+        "532_img_",
+        "535_img_"
+      ],
+      "reason": "Conservative cave-diver collection, focus sheet 06"
+    },
+    {
+      "ids": [
+        "654_img_",
+        "658_img_",
+        "751_img_",
+        "756",
+        "758"
+      ],
+      "reason": "Related anemone and clownfish collection, focus sheets 06 and 07"
+    },
+    {
+      "ids": [
+        "666_img_",
+        "668_img_",
+        "670_img_",
+        "672_img_",
+        "673_img_",
+        "711_img_",
+        "712_img_",
+        "713_img_",
+        "714_img_",
+        "715_img_",
+        "718_img_"
+      ],
+      "reason": "Conservative neighboring wreck views, focus sheets 06 and 07"
+    },
+    {
+      "ids": [
+        "724_img_",
+        "725_img_"
+      ],
+      "reason": "Conservative school/turtle sandy scene, focus sheet 07"
+    },
+    {
+      "ids": [
+        "795_img_",
+        "420_img_"
+      ],
+      "reason": "Conservative wreck fittings collection, focus sheet 08"
+    },
+    {
+      "ids": [
+        "849_img_",
+        "450_img_",
+        "412_img_",
+        "105_img_"
+      ],
+      "reason": "Conservative archaeological survey/diver collection, focus sheets 04 and 08"
+    },
+    {
+      "ids": [
+        "925_img_",
+        "927_img_"
+      ],
+      "reason": "Conservative coral and diver scene, focus sheets 09 and 10"
+    },
+    {
+      "ids": [
+        "858_img_",
+        "904_img_",
+        "906_img_",
+        "910_img_",
+        "15001",
+        "15003",
+        "15045",
+        "15094",
+        "15113",
+        "15136",
+        "15418",
+        "15426",
+        "15544",
+        "15704"
+      ],
+      "reason": "Conservative turbid-water instrument/survey collection; retain possible shared-source frames together, focus sheets 01 and 09"
+    }
+  ],
+  "protected_development_ids": [
+    "100_img_",
+    "10139",
+    "10151",
+    "111_img_",
+    "14_img_",
+    "15544",
+    "1957",
+    "293_img_",
+    "294_img_",
+    "299_img_",
+    "306_img_",
+    "347_img_",
+    "364_img_",
+    "371_img_",
+    "403_img_",
+    "423_img_",
+    "429_img_",
+    "448_img_",
+    "454_img_",
+    "487_img_",
+    "495_img_",
+    "501_img_",
+    "509_img_",
+    "526_img_",
+    "680_img_",
+    "682_img_",
+    "691_img_",
+    "698_img_",
+    "701_img_",
+    "722_img_",
+    "727_img_",
+    "729_img_",
+    "730_img_",
+    "731_img_",
+    "732_img_",
+    "814_img_",
+    "821_img_",
+    "8262",
+    "832_img_",
+    "852_img_",
+    "863_img_",
+    "908_img_",
+    "912_img_",
+    "915_img_",
+    "926_img_"
+  ],
+  "development_protection_reason": "Previously inspected diagnostic depth outputs and synchronized-batch examples cannot enter selection or final-test partitions.",
+  "feature_grouping": {
+    "candidates_path": "artifacts/data_review/completion/feature_candidates.json",
+    "candidates_sha256": "c1de7d036474d2247d9b96c42a72868b3b83857722ff3c8a772aa5537fe05687",
+    "threshold": 0.93,
+    "policy": "Conservative raw/raw co-assignment only, not a claim all semantic matches are the same physical scene. Cross-set matches require separate visual decisions."
+  },
+  "challenging_quarantine": [
+    {
+      "id": "9553",
+      "reason": "Unresolved adjacent reef source sequence; conservatively isolate from paired reef views",
+      "related_paired_ids": [
+        "248_img_",
+        "238_img_",
+        "254_img_",
+        "9547",
+        "9554",
+        "9557"
+      ],
+      "disposition": "Retain original bytes; exclude from frozen challenging evaluation before any enhancement model training."
+    },
+    {
+      "id": "9602",
+      "reason": "Related or uncertain adjacent reef source view, supported by feature match and visual review",
+      "related_paired_ids": [
+        "9557",
+        "9554"
+      ],
+      "disposition": "Retain original bytes; exclude from frozen challenging evaluation before any enhancement model training."
+    },
+    {
+      "id": "9607",
+      "reason": "Conservative quarantine of the same neighboring reef source collection",
+      "related_paired_ids": [
+        "9547",
+        "9554",
+        "9557",
+        "9567"
+      ],
+      "disposition": "Retain original bytes; exclude from frozen challenging evaluation before any enhancement model training."
+    },
+    {
+      "id": "9618",
+      "reason": "Conservative quarantine of the same neighboring reef/dive source collection",
+      "related_paired_ids": [
+        "9547",
+        "9554",
+        "9557",
+        "9567"
+      ],
+      "disposition": "Retain original bytes; exclude from frozen challenging evaluation before any enhancement model training."
+    },
+    {
+      "id": "15603",
+      "reason": "Unresolved shared first-person instrument/survey source; quarantine rather than certify independent scene",
+      "related_paired_ids": [
+        "15003",
+        "15426",
+        "15544"
+      ],
+      "disposition": "Retain original bytes; exclude from frozen challenging evaluation before any enhancement model training."
+    },
+    {
+      "id": "15735",
+      "reason": "Unresolved shared first-person instrument/survey source; quarantine rather than certify independent scene",
+      "related_paired_ids": [
+        "15426",
+        "15544"
+      ],
+      "disposition": "Retain original bytes; exclude from frozen challenging evaluation before any enhancement model training."
+    },
+    {
+      "id": "15738",
+      "reason": "Unresolved shared first-person instrument/survey source; quarantine rather than certify independent scene",
+      "related_paired_ids": [
+        "15426",
+        "15544"
+      ],
+      "disposition": "Retain original bytes; exclude from frozen challenging evaluation before any enhancement model training."
+    },
+    {
+      "id": "12709",
+      "reason": "Unresolved related aquarium shark/rock-background view; conservative source isolation",
+      "related_paired_ids": [
+        "12324",
+        "12299"
+      ],
+      "disposition": "Retain original bytes; exclude from frozen challenging evaluation before any enhancement model training."
+    }
+  ],
+  "challenging_scene_groups": [
+    {
+      "ids": [
+        "12191",
+        "12203",
+        "12565",
+        "12577"
+      ],
+      "reason": "Related close fish/aquarium views"
+    },
+    {
+      "ids": [
+        "10488",
+        "3494",
+        "3519"
+      ],
+      "reason": "Conservative dark aquarium collection"
+    },
+    {
+      "ids": [
+        "12625",
+        "12753"
+      ],
+      "reason": "Related underwater diver/equipment views"
+    },
+    {
+      "ids": [
+        "2575",
+        "2583"
+      ],
+      "reason": "Related dolphin views"
+    },
+    {
+      "ids": [
+        "3027",
+        "3087"
+      ],
+      "reason": "Conservative nearby reef fish views"
+    },
+    {
+      "ids": [
+        "34",
+        "52"
+      ],
+      "reason": "Related blue reef views"
+    },
+    {
+      "ids": [
+        "579",
+        "605"
+      ],
+      "reason": "Related reef/wall views"
+    },
+    {
+      "ids": [
+        "6333",
+        "6340"
+      ],
+      "reason": "Related green-water diver/bubble views"
+    }
+  ],
+  "completion_evidence_path": "artifacts/data_review/completion/accepted_review.json",
+  "completion_evidence_sha256": "83c5a12946431b796c87047f1a5d1a221ecfc95c9d282d4bc53dec5e47100bf0",
+  "counts_decision": "Accepted prospective counts: 883 paired images after 7 exact-input exclusions; 51 challenging images after 1 unsupported MPO and 8 ambiguous-source quarantines. Do not present this as the full 60-image UIEB challenging benchmark."
+}

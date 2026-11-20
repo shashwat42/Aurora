@@ -1,0 +1,65 @@
+{
+  "model_id": "depth-anything/Depth-Anything-V2-Small-hf",
+  "revision": "5426e4f0f36572d16453bbda7a8389317b1bef99",
+  "local_directory": "artifacts/models/depth-anything-v2-small",
+  "device": "cpu",
+  "threads": 4,
+  "weight_format": "safetensors",
+  "files_sha256": {
+    "config.json": "c56698d3643dde1f83ea2212759e6b31a22b8f827246a36dd007ee8a22b3ff75",
+    "preprocessor_config.json": "d41175c0d889477ca8fc67191e540faef14baf6275157b3fdecf78469e6bbf84",
+    "model.safetensors": "3152477ce0d8d6978d76b995120de97cb5b928701fd0f817769f59e249a16b70",
+    "README.md": "319566441daaac0c5ed83e75a8fd19bae0863f3275e23f147c06fe0906edf6fb"
+  },
+  "license": "Apache-2.0",
+  "license_evidence": "https://huggingface.co/depth-anything/Depth-Anything-V2-Small-hf/blob/5426e4f0f36572d16453bbda7a8389317b1bef99/README.md",
+  "license_scope": "This exact Small-hf checkpoint; do not infer terms for Base/Large variants.",
+  "redistribution": "Apache-2.0 conditions apply, including license and notices; weights remain local and are not bundled in source delivery.",
+  "preprocessing_version": "depth-srgb-518-aspect14-bilinear-minmax-v1",
+  "normalization": "Per-image (relative - minimum) / (maximum - minimum); constant maps become zeros.",
+  "resize": "Official DPTImageProcessor, slow/PIL path; preserve aspect, ensure multiple of 14, no cropping/padding; restore bilinear align_corners=False to oriented native RGB before normalization.",
+  "processor_configuration": {
+    "_valid_processor_keys": [
+      "images",
+      "do_resize",
+      "size",
+      "keep_aspect_ratio",
+      "ensure_multiple_of",
+      "resample",
+      "do_rescale",
+      "rescale_factor",
+      "do_normalize",
+      "image_mean",
+      "image_std",
+      "do_pad",
+      "size_divisor",
+      "return_tensors",
+      "data_format",
+      "input_data_format"
+    ],
+    "do_normalize": true,
+    "do_pad": false,
+    "do_rescale": true,
+    "do_resize": true,
+    "ensure_multiple_of": 14,
+    "image_mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "image_processor_type": "DPTImageProcessor",
+    "image_std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "keep_aspect_ratio": true,
+    "resample": 3,
+    "rescale_factor": 0.00392156862745098,
+    "size": {
+      "height": 518,
+      "width": 518
+    },
+    "size_divisor": null
+  }
+}

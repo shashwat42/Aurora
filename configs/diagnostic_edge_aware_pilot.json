@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "purpose": "Offline diagnostic residual counterfactuals; not trained candidates or a production postprocessor",
+  "source_checkpoint": "rgb_baseline_v2/epoch-020",
+  "diagnostic_ids": ["380_img_", "729_img_"],
+  "variants": ["original", "flat32", "guided8", "guided32"],
+  "guided8": {"radius": 8, "epsilon": 0.0001, "guidance": "mean input RGB in encoded [0,1]"},
+  "guided32": {"radius": 32, "epsilon": 0.0001, "guidance": "mean input RGB in encoded [0,1]"},
+  "flat32": {"radius": 32, "epsilon": 0.0001, "guidance": "constant zero, matched window and operator control"},
+  "mean_policy": "Restore original per-channel global mean residual before clipping",
+  "boundaries": "Reflect padding for uniform window statistics, full native image before cropping",
+  "source": "https://people.csail.mit.edu/kaiming/eccv10/index.html",
+  "selection_policy": "No checkpoint selection. Inspect contour/edge/detail/colour/clipping tradeoffs on these fixed diagnostic cases. No training or held-out access. Parameter values fixed before running this pilot.",
+  "output": "artifacts/phase2/diagnosis_v2/edge_aware_pilot"
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "run_kind": "baseline_candidate",
+  "seed": 20261101,
+  "manifest": "data/metadata/manifest.v1.json",
+  "manifest_sha256": "9fd50e5ec5484f31245e319dc91b32830f7664b424d3800f46a1434209c7d551",
+  "data_root": "data",
+  "architecture": "rgb-residual-unet-v1",
+  "model": {"base_channels": 16, "residual_scale": 0.5},
+  "crop_size": 256,
+  "batch_size": 2,
+  "epochs": 20,
+  "learning_rate": 0.0002,
+  "weight_decay": 0.0001,
+  "loss_weights": {"l1": 1.0, "ssim": 0.2, "perceptual": 0.0, "adversarial": 0.0},
+  "candidate_epochs": [5, 10, 20],
+  "candidate_search_budget": "One RGB architecture, one primary seed, one 20-epoch reconstruction run, three candidate checkpoints. The controlled depth run must use the same RGB backbone, primary seed, optimizer, loss schedule and candidate budget.",
+  "selection_policy": "Native-size selection 40 only after diagnostic implementation checks; artifact screen first; maximize mean PSNR, ties within 0.01 dB use higher mean SSIM then earlier step. Record all candidates. No test/challenging access.",
+  "review_rubric": "Zero major artifacts; at most 10 percent minor. Major: introduced/worsened false structure, lost recognizable content, strong halos or severe noise. Minor: other visible correction defects. Independent reviewer records remain required by PRD.",
+  "device": "cpu",
+  "threads": 4,
+  "output": "artifacts/phase2/rgb_baseline"
+}

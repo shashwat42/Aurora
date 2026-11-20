@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "type": "diagnostic_identity_pilot",
+  "arms": {
+    "control": "configs/identity_pilot_control.json",
+    "identity": "configs/identity_pilot_identity.json"
+  },
+  "identity_weight": 0.5,
+  "identity_diagnostic_ids": [
+    "14_img_",
+    "284_img_",
+    "380_img_",
+    "729_img_",
+    "802_img_",
+    "851_img_"
+  ],
+  "output": "artifacts/phase2/identity_pilot",
+  "source_weights_sha256": "fb6089e61b1b010a014d07dede182bd23504c2e57bff71ab1caab86a4cdebd44",
+  "optimizer_policy": "Both arms reset AdamW equally; no mid-run resume. Same seed/data/crop sequence, learning rate, reconstruction objective and two additional epochs. Treatment adds raw reference identity L1 weight 0.5, requiring an extra reference forward/backward contribution.",
+  "compute_budget": "714 updates per arm, 1428 new updates total, 80 diagnostic enhancement evaluations and 12 diagnostic reference identity checks. No selection/test/challenging evaluation.",
+  "interpretation": "No automatic winner or checkpoint approval; compare raw enhancement metrics, visual artifacts and identity preservation. Mean total training losses are not directly comparable because objectives differ.",
+  "full_model_comparison": "Any retained final setting requires an explicit controlled RGB/depth protocol, including correctly aligned depth for reference identity inputs if used in a depth model. This RGB-only pilot does not establish that comparison."
+}

@@ -1,0 +1,10 @@
+.venv*/
+.python/
+.tools/
+.cache/
+__pycache__/
+*.egg-info/
+data/
+artifacts/
+*.safetensors
+*.pth

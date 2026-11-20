@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "run_kind": "diagnostic_pilot",
+  "seed": 20261101,
+  "manifest": "data/metadata/manifest.v1.json",
+  "manifest_sha256": "9fd50e5ec5484f31245e319dc91b32830f7664b424d3800f46a1434209c7d551",
+  "data_root": "data",
+  "architecture": "rgb-residual-unet-v1",
+  "model": {
+    "base_channels": 16,
+    "residual_scale": 0.5
+  },
+  "crop_size": 256,
+  "batch_size": 2,
+  "epochs": 2,
+  "learning_rate": 0.0002,
+  "weight_decay": 0.0001,
+  "loss_weights": {
+    "l1": 1.0,
+    "ssim": 0.2,
+    "perceptual": 0.0,
+    "adversarial": 0.0
+  },
+  "candidate_epochs": [
+    2
+  ],
+  "candidate_search_budget": "Diagnostic-only: exactly two matched arms from the same frozen V2 epoch-20 weights, two additional epochs each, one snapshot each. No new seed search, no production candidate selection or modification of V1/V2 budgets.",
+  "selection_policy": "Forbidden: these pilot bundles may be evaluated on diagnostics only, not selection or final data.",
+  "review_rubric": "Zero major artifacts; at most 10 percent minor. Major: introduced/worsened false structure, lost recognizable content, strong halos or severe noise. Minor: other visible correction defects. Independent reviewer records remain required by PRD.",
+  "device": "cpu",
+  "threads": 4,
+  "output": "artifacts/phase2/valid_center_pilot/treatment",
+  "protocol_version": "identity-preservation-pilot-v1",
+  "l1_prediction": "unclamped",
+  "revision_basis": "Two-case edge-aware ablation is mixed. Applying the network to diagnostic reference inputs causes mean absolute changes 0.071-0.078. Test identity preservation as a learning constraint; no improvement is established.",
+  "init_bundle": "artifacts/phase2/rgb_baseline_v2/epoch-020/bundle.json",
+  "init_weights_sha256": "fb6089e61b1b010a014d07dede182bd23504c2e57bff71ab1caab86a4cdebd44",
+  "augmentation_epoch_offset": 20,
+  "identity_weight": 0.0,
+  "held_fixed_between_arms": [
+    "frozen V2 epoch-20 initialization",
+    "train713 and frozen manifest",
+    "seed, deterministic shuffle and synchronized crops at augmentation epochs20/21",
+    "2 additional epochs, batch2, 714 optimizer updates",
+    "fresh AdamW lr0.0002 weight_decay0.0001",
+    "unclamped L1=1 and bounded SSIM=0.2",
+    "architecture, output bounding and diagnostic-only scope"
+  ],
+  "loss_margin": 64
+}

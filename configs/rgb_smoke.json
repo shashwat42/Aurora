@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "run_kind": "training_smoke_only",
+  "seed": 20261101,
+  "manifest": "data/metadata/manifest.v1.json",
+  "manifest_sha256": "9fd50e5ec5484f31245e319dc91b32830f7664b424d3800f46a1434209c7d551",
+  "data_root": "data",
+  "architecture": "rgb-residual-unet-v1",
+  "model": {"base_channels": 16, "residual_scale": 0.5},
+  "crop_size": 256,
+  "batch_size": 2,
+  "epochs": 1,
+  "max_steps": 8,
+  "learning_rate": 0.0002,
+  "weight_decay": 0.0001,
+  "loss_weights": {"l1": 1.0, "ssim": 0.2, "perceptual": 0.0, "adversarial": 0.0},
+  "candidate_epochs": [],
+  "device": "cpu",
+  "threads": 4,
+  "output": "artifacts/phase2/rgb_smoke"
+}

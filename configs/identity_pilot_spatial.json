@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "type": "diagnostic_identity_pilot",
+  "arms": {
+    "control": "configs/identity_pilot_control.json",
+    "identity": "configs/identity_pilot_spatial_treatment.json"
+  },
+  "identity_weight": 0.5,
+  "identity_diagnostic_ids": [
+    "14_img_",
+    "284_img_",
+    "380_img_",
+    "729_img_",
+    "802_img_",
+    "851_img_"
+  ],
+  "output": "artifacts/phase2/spatial_identity_pilot",
+  "source_weights_sha256": "fb6089e61b1b010a014d07dede182bd23504c2e57bff71ab1caab86a4cdebd44",
+  "optimizer_policy": "Both arms reset AdamW equally; no mid-run resume. Same seed/data/crop sequence, learning rate, reconstruction objective and two additional epochs. Treatment adds raw reference identity L1 weight 0.5, requiring an extra reference forward/backward contribution.",
+  "compute_budget": "Reuse the completed 714-step control and its diagnostic40 evaluation without rewriting prior artifacts. Train exactly one new centered-identity arm: 2 epochs / 714 additional updates. 40 new enhancement evaluations plus 12 native reference identity checks (six per arm), no selection/final inputs.",
+  "interpretation": "Exploratory follow-up using the same diagnostic data. Compare against reused no-identity control and prior full identity treatment. No automatic winner or release approval. Centering also changes effective loss magnitude, so this does not isolate gradient direction independently of strength.",
+  "full_model_comparison": "Any retained final setting requires an explicit controlled RGB/depth protocol, including correctly aligned depth for reference identity inputs if used in a depth model. This RGB-only pilot does not establish that comparison.",
+  "experiment_id": "centered-reference-identity-pilot-v1",
+  "treatment_variable": "centered_reference_identity",
+  "reuse_diagnostic_evaluation": {
+    "control": {
+      "summary": "artifacts/phase2/identity_pilot/evaluation/control/summary.json",
+      "summary_sha256": "573a3e370314411fa3c0fa591368e485c17415de3429bd067752facca662071b"
+    }
+  },
+  "rationale": "Post-hoc inspection of five largest full-identity regressions shows reduced correction RMS and increased mean RGB bias; mean-centered reference residual L1 removes the penalty on uniform per-channel reference shifts while retaining a penalty on spatially varying changes.",
+  "loss": "L1(raw(input),reference)+0.2*(1-SSIM(bounded(input),reference))+0.5*mean(abs(residual(reference)-spatial_mean(residual(reference))))",
+  "pilot_continuation_criteria": [
+    "Both diagnostic mean PSNR and SSIM must be at least the matched control values for a positive continuation signal.",
+    "Mean centered absolute reference identity change on the fixed six must decrease versus control.",
+    "Inspect the fixed prior five worst regressions plus 380/729/851 for colour, detail and contours; no new major visual defect. This is not independent artifact approval.",
+    "If any criterion fails, do not promote or automatically sweep more weights. A positive signal still requires a separately declared full baseline protocol and formal selection/artifact review."
+  ],
+  "cumulative_budget": "This diagnostic cycle now has three declared distinct settings: no identity, full reference identity weight0.5, centered reference identity weight0.5. Exactly one new arm is authorized by this protocol; no seed or weight sweep.",
+  "prior_evidence": {
+    "summary": "artifacts/phase2/identity_pilot/summary.json",
+    "summary_sha256": "8e2e175019c1565fb200f9305c342b09bdc1cfb91e8ccbbc71123880a5a6a94e",
+    "regressions": "artifacts/phase2/diagnosis_v2/identity_regressions/report.json"
+  }
+}

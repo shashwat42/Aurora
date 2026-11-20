@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "run_kind": "baseline_candidate",
+  "seed": 20261101,
+  "manifest": "data/metadata/manifest.v1.json",
+  "manifest_sha256": "9fd50e5ec5484f31245e319dc91b32830f7664b424d3800f46a1434209c7d551",
+  "data_root": "data",
+  "architecture": "rgb-scene-depth-gated-unet-v1",
+  "scene_context": "native-input-channel-moments-v1",
+  "model": {
+    "base_channels": 16,
+    "residual_scale": 0.5,
+    "scene_hidden": 32,
+    "gain_scale": 0.5,
+    "offset_scale": 0.25
+  },
+  "crop_size": 256,
+  "batch_size": 2,
+  "epochs": 20,
+  "learning_rate": 0.0002,
+  "weight_decay": 0.0001,
+  "loss_weights": {
+    "l1": 1.0,
+    "ssim": 0.2,
+    "perceptual": 0.0,
+    "adversarial": 0.0
+  },
+  "l1_prediction": "unclamped",
+  "candidate_epochs": [
+    5,
+    10,
+    20
+  ],
+  "candidate_search_budget": "One from-scratch depth run, seed20261101, 20epochs, exactly candidates5/10/20. Match frozen V3 RGB data/backbone/scene context/loss/optimizer/schedule/budget. No extra seeds or sweeps.",
+  "selection_policy": "Diagnostic-only evaluation of all three candidates first. A separately recorded diagnostic acceptance is required before selection. Formal selection uses all three candidates, artifact screen first, mean native PSNR; ties within 0.01 dB use SSIM then earlier step. No final-test/challenging access.",
+  "review_rubric": "Zero major artifacts and at most four minor cases of 40; same original rubric and two independent review records. No aggregate score overrides artifact failure.",
+  "diagnostic_gate_record": "artifacts/phase3/evaluation/diagnostic_acceptance.json",
+  "diagnostic_continuation": "Diagnostic-only native evaluation first; compare against matched V3 epochs and inspect fixed8 diagnostic cases, including depth omission and spatially perturbed depth. No selection access until recorded diagnostic acceptance; no final-test/challenging scoring. No automatic sweep or more epochs if harmful or neutral.",
+  "device": "cpu",
+  "threads": 4,
+  "output": "artifacts/phase3/depth_baseline",
+  "protocol_version": "scene-depth-gated-reconstruction-v1",
+  "rationale": "Stage3 experimental depth integration after user-reported manual RGB check; retain RGB backbone and add aligned depth encoder with learned four-scale additive gates. No calibrated confidence claim.",
+  "depth_config": "configs/depth.json",
+  "depth_config_sha256": "7dfc3646ba7ae8585bf22ab426bed7116cbc0096ec6031c6cec6cec13ba69430",
+  "depth_fingerprint": "3739c18d0802bd47a27a7f087c286a277e9b659eb9913796f99dc1c821bf3f42"
+}

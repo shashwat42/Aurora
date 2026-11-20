@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "experiment_id": "train-only-global-affine-ridge-v1",
+  "manifest": "data/metadata/manifest.v1.json",
+  "manifest_sha256": "9fd50e5ec5484f31245e319dc91b32830f7664b424d3800f46a1434209c7d551",
+  "data_root": "data",
+  "expected_train_count": 713,
+  "expected_diagnostic_count": 40,
+  "features": "Native RGB channel means, population standard deviations, and 0.1/0.5/0.9 quantiles; 15 features, training-only standardization",
+  "targets": "Training-reference per-channel least-squares gains then offsets, before output clipping; constant channel gain zero",
+  "regression": "One multi-output ridge regression of six target coefficients; centered targets and standardized features; intercept unpenalized; no hyperparameter search",
+  "ridge_alpha": 1.0,
+  "inference": "Input-only features predict one gain and offset per channel; native output clipped to [0,1]; no input resizing or learned spatial detail",
+  "control_summary": "artifacts/phase2/identity_pilot/evaluation/control/summary.json",
+  "control_summary_sha256": "573a3e370314411fa3c0fa591368e485c17415de3429bd067752facca662071b",
+  "threads": 4,
+  "output": "artifacts/phase2/global_affine_pilot",
+  "budget": "One fit on all 713 frozen training pairs, then one native-size diagnostic40 evaluation. No selection/test/challenging reads, candidate sweep or artifact approval.",
+  "continuation": "Both diagnostic mean PSNR and SSIM must meet or exceed the reused control, followed by native visual review of the same eight fixed cases with no new major defects. Failure closes this fixed approach without automatic feature/alpha sweeps. Success motivates a separately declared RGB architecture/protocol; this pilot is never automatically selected.",
+  "limitations": [
+    "Training references provide coefficient supervision only on training members; diagnostic references are used only after input-only predictions for scoring.",
+    "Optimizing coefficient prediction differs from optimizing restored image quality; a negative result does not rule out all global conditioning methods.",
+    "Per-channel affine transforms cannot recover spatially dependent restoration, and unconstrained predicted coefficients may clip or invert colours.",
+    "Diagnostic data are repeatedly inspected development data; results cannot establish final generalization or depth benefit."
+  ]
+}

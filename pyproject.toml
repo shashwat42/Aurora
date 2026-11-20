@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aurora-underwater"
+version = "0.1.0"
+description = "Aurora local underwater enhancement research pipeline"
+requires-python = ">=3.14,<3.15"
+dependencies = [
+  "torch>=2.8", "transformers>=4.57,<5", "gradio>=6,<7",
+  "numpy>=2,<3", "Pillow>=12,<13", "scipy>=1.16,<2",
+]
+
+[project.scripts]
+aurora = "aurora.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
